@@ -56,7 +56,7 @@
         // END SIDEBAR ONCLICK
 
         // STATS COUNTER ONSCROLL
-        let section = document.querySelector("header");
+        /*let section = document.querySelector("header");
         let stat = document.querySelectorAll(".counter .stat");
         let start = false;
         window.onscroll = function () {
@@ -75,7 +75,7 @@
                     clearInterval(count);
                 }
             }, 2000 / stat);  
-        }; 
+        }; */
         // END STATS COUNTER ONSCROLL
 
         

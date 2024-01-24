@@ -58,6 +58,9 @@
 .serve {
     margin-bottom: -100px;
 }
+.ser {
+    margin-bottom: 0px;
+}
 @media (max-width: 1080px) {
     .services-display-pg {
         gap: 20px;

@@ -42,6 +42,9 @@
 .team-value {
     margin-bottom: -100px;
 }
+.bbx {
+    margin-bottom: 0px;
+}
 @media (max-width: 480px) {
     .team-title h1 {
         font-size: 1.5em;

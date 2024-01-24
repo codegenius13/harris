@@ -377,6 +377,7 @@ header .toggle-nav .toggle-open, .toggle-close {
     height: 250px;
     transition: .4s;
     border: 1px solid rgb(150, 148, 148);
+    object-fit: cover;
 }
 .landing-display-img img:hover {
     transition: .4s;
@@ -496,7 +497,7 @@ header .toggle-nav .toggle-open, .toggle-close {
     justify-content: center;
     align-items: center;
     margin-top: 70px; 
-    margin-bottom: 50px;
+    margin-bottom:200px;
 }
 .services-box {
     border: 1px solid rgb(150, 148, 148);
@@ -529,7 +530,12 @@ header .toggle-nav .toggle-open, .toggle-close {
     font-size: 15px;
 }
 
+
 /* quote page */
+.intro-vid {
+    margin-top: -200px;
+    margin-bottom: 50px;
+}
 .quote {
     position: relative;
     width: 100%;
