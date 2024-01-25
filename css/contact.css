@@ -95,6 +95,18 @@
     padding: 10px;
     margin-top: 20px;
 }
+.contact-input div.error input {
+    border-color: rgb(255, 0, 0);
+}
+.contact-input div.error .error-txt{
+    display: block;
+}
+.contact-message.error textarea {
+    border-color: rgb(255, 0, 0);
+}
+.contact-message.error .error-txt {
+    display: block;
+}
 .contact-message textarea {
     outline: none;
     border: none;
@@ -103,6 +115,20 @@
     padding: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.contact-input div .error-txt {
+    display: none;
+    color: rgb(255, 0, 0);
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.contact-message .error-txt {
+    display: none;
+    color: rgb(255, 0, 0);
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 .contact-input div label i {
     margin-top: -10px;

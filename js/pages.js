@@ -1,92 +1,91 @@
+const form = document.querySelector("form");
+const firstName = document.getElementById("fname");
+const lastName = document.getElementById("lname");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const message = document.getElementById("message");
 
 
-const carousel = document.querySelector(".carousel"),
-firstImg = carousel.querySelectorAll(".prd")[0],
-arrowIcons = document.querySelectorAll(".wrapper-team i");
+function sendEmail() {
+    const bodyMessage = `First Name: ${firstName.value}<br> 
+    Last Name: ${lastName.value}<br> Email: ${email.value}<br> 
+    Phone Number: ${phone.value}<br> Message: ${message.value}<br>`;
 
-let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
-
-const showHideIcons = () => {
-    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; 
-    arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
-    arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "ikuerowoboluwatife@gmail.com",
+        Password : "8D6F4AF1ADCDED55E79997A1D69FFF280F55",
+        To : 'ikuerowoboluwatife@gmail.com',
+        From : "ikuerowoboluwatife@gmail.com",
+        Subject : "Harris Momodu Contact Form",
+        Body : bodyMessage
+    }).then(
+    message => {
+        if (message == "OK") {
+            Swal.fire({
+                title: "Sucess!",
+                text: "Message Sent Successfully!",
+                icon: "success"
+              });
+        }
+    }
+    );
+}
+function checkInputs() {
+    const items = document.querySelectorAll(".cnt-item");
+    for (const item of items) {
+        if (item.value == "") {
+            item.classList.add("error");
+            item.parentElement.classList.add("error");
+        }
+        if (items[2].value != "") {
+            checkEmail()
+        }
+        items[2].addEventListener("keyup", () => {
+            checkEmail()
+        });
+        item.addEventListener("keyup", () => {
+            if (item.value != "") {
+                item.classList.remove("error");
+                item.parentElement.classList.remove("error");
+            }
+            else {
+                item.classList.add("error");
+                item.parentElement.classList.add("error");
+            }
+        })
+    }
+}
+function checkEmail() {
+    const emailRegex = /^[^_.]([a-zA-Z0-9_]*[.]?[a-zA-Z0-9_]+[^_]){2}@{1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$/;
+    const emailError = document.querySelector(".error-txt.email") 
+    if (!email.value.match(emailRegex)) {
+        email.classList.add("error");
+        email.parentElement.classList.add("error");
+        if (email.value != "") {
+            emailError.innerText = "Enter valid email address";
+        }
+        else {
+            emailError.innerText = "Provide email address"
+        }
+    }
+    else {
+        email.classList.remove("error");
+        email.parentElement.classList.remove("error")
+    }
 }
 
-arrowIcons.forEach(icon => {
-    icon.addEventListener("click", () => {
-        let firstImgWidth = firstImg.clientWidth + 14; 
-        carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
-        setTimeout(() => showHideIcons(), 60); 
-    });
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    checkInputs();
+    if (!firstName.classList.contains("error") && 
+        !lastName.classList.contains("error") && !email.classList.contains("error") &&
+        !phone.classList.contains("error") && !message.classList.contains("error")) {
+             sendEmail();
+
+             form.reset();
+             return false;
+        
+    }
 });
 
-const autoSlide = () => {
-    if(carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
-
-    positionDiff = Math.abs(positionDiff); 
-    let firstImgWidth = firstImg.clientWidth + 14;
-    let valDifference = firstImgWidth - positionDiff;
-
-    if(carousel.scrollLeft > prevScrollLeft) { 
-        return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
-    }
-
-    carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
-}
-
-const dragStart = (e) => {
-    isDragStart = true;
-    prevPageX = e.pageX || e.touches[0].pageX;
-    prevScrollLeft = carousel.scrollLeft;
-}
-
-const dragging = (e) => {
-    
-    if(!isDragStart) return;
-    e.preventDefault();
-    isDragging = true;
-    carousel.classList.add("dragging");
-    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
-    carousel.scrollLeft = prevScrollLeft - positionDiff;
-    showHideIcons();
-}
-
-const dragStop = () => {
-    isDragStart = false;
-    carousel.classList.remove("dragging");
-
-    if(!isDragging) return;
-    isDragging = false;
-    autoSlide();
-}
-
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("touchstart", dragStart);
-
-document.addEventListener("mousemove", dragging);
-carousel.addEventListener("touchmove", dragging);
-
-document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("touchend", dragStop);
-
-
-let sectionTwo = document.querySelector(".abt-counter");
-let statTwo = document.querySelectorAll(".abt-stat-info .start");
-let startTwo = false;
-window.onscroll = function () {
-    if (window.scrollY >= sectionTwo.offsetTop) {
-        if (!startTwo) {
-            statTwo.forEach((start) => startTwoCount(start));
-        }
-        startTwo = true;
-    }
-}
-function startTwoCount(event) {
-    let maxTwo = event.dataset.maxTwo;
-    let countTwo = setInterval(() => {
-        event.textContent++;
-        if (event.textContent == maxTwo) {
-            clearInterval(countTwo);
-        }
-    }, 2000 / statTwo);  
-};

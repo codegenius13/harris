@@ -23,22 +23,22 @@
         // END STICKY HEADER ONSCROLL TOP
         // PAGE SCROLLING TOP BUTTON
         let scrollingUp = () => {
-        let scrollTop = document.getElementById("myBtn");
-        let scl = document.documentElement.scrollTop;
-        let sclLen = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let scrollValue = Math.round((scl * 100) / sclLen);
-        if (scl>100) {
-          scrollTop.style.display = "block";
+            let scrollTop = document.getElementById("myBtn");
+            let scl = document.documentElement.scrollTop;
+            let sclLen = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrollValue = Math.round((scl * 100) / sclLen);
+            if (scl>100) {
+            scrollTop.style.display = "block";
+            }
+            else {
+            scrollTop.style.display = "none";
+            }
+            scrollTop.addEventListener("click", () => {
+            document.documentElement.scrollTop = 0;
+            });
         }
-        else {
-          scrollTop.style.display = "none";
-        }
-        scrollTop.addEventListener("click", () => {
-          document.documentElement.scrollTop = 0;
-        });
-      }
-      window.onscroll = scrollingUp;
-      // END PAGE SCROLLING TOP BUTTON
+        window.onscroll = scrollingUp;
+        // END PAGE SCROLLING TOP BUTTON
         // SIDEBAR ONCLICK 
         const toggleOpen = document.querySelector(".toggle-open");
         const toogleClose = document.querySelector(".toggle-close");
@@ -56,26 +56,12 @@
         // END SIDEBAR ONCLICK
 
         // STATS COUNTER ONSCROLL
-        /*let section = document.querySelector("header");
-        let stat = document.querySelectorAll(".counter .stat");
-        let start = false;
-        window.onscroll = function () {
-            if (window.scrollY >= section.offsetTop) {
-                if (!start) {
-                    stat.forEach((sta) => startCount(sta));
-                }
-                start = true;
-            }
-        }
-        function startCount(el) {
-            let max = el.dataset.max;
-            let count = setInterval(() => {
-                el.textContent++;
-                if (el.textContent == max) {
-                    clearInterval(count);
-                }
-            }, 2000 / stat);  
-        }; */
+        $(document).ready(function(){
+            $('.stat').counterUp({
+              delay: 10,
+              time: 1200
+            });
+          });
         // END STATS COUNTER ONSCROLL
 
         
@@ -144,4 +130,4 @@
     });
 })();
 
-        
+     

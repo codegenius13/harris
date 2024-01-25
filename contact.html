@@ -153,32 +153,37 @@
             </div>
         </div>
         <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
-            <form action="" method="post" autocomplete="on">
+            <form action="#">
                 <div class="contact-input">
                     <div>
                         <label>First Name <i>*</i></label>
-                        <input type="text" name="" placeholder="Harris" required>
+                        <input type="text" id="fname" autocomplete="off" class="cnt-item" placeholder="Harris" >
+                        <p class="error-txt">Name cant't be empty</p>
                     </div>
                     <div>
                         <label>Last Name <i>*</i></label>
-                        <input type="text" name="" placeholder="Momodu" required>
+                        <input type="text" id="lname" autocomplete="off" class="cnt-item" placeholder="Momodu" >
+                        <p class="error-txt">Name cant't be empty</p>
                     </div>
                 </div>
                 <div class="contact-input">
                     <div>
                         <label>Email <i>*</i></label>
-                        <input type="email" name="" placeholder="example@gmail.com" required>
+                        <input type="email" id="email" autocomplete="off" class="cnt-item" placeholder="example@gmail.com" >
+                        <p class="error-txt email">Provide email address</p>
                     </div>
                     <div>
                         <label>Phone <i>*</i></label>
-                        <input type="tel" name="" placeholder="+1 (234) 567 890">
+                        <input type="tel" id="phone" autocomplete="off" class="cnt-item" placeholder="+1 (234) 567 890">
+                        <p class="error-txt">Phone number cant't be empty</p>
                     </div>
                 </div>
                 <div class="contact-message">
                         <label> Message <i>*</i></label>
-                        <textarea name="" cols="30" rows="10" placeholder="Hello there!"></textarea>
+                        <textarea id="message" autocomplete="off" cols="30" rows="10" class="cnt-item" placeholder="Hello there!"></textarea>
+                        <p class="error-txt">Input your message</p>
                 </div>
-                <button type="submit" name="">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </section>
@@ -303,6 +308,8 @@
     <script src="js/unpkg.js"></script>
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/pages.js"></script>
 </body>
 </html>
