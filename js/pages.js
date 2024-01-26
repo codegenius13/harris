@@ -1,3 +1,4 @@
+
 const form = document.querySelector("form");
 const firstName = document.getElementById("fname");
 const lastName = document.getElementById("lname");
@@ -7,9 +8,21 @@ const message = document.getElementById("message");
 
 
 function sendEmail() {
-    const bodyMessage = `First Name: ${firstName.value}<br> 
+    /*const bodyMessage = `First Name: ${firstName.value}<br> 
     Last Name: ${lastName.value}<br> Email: ${email.value}<br> 
-    Phone Number: ${phone.value}<br> Message: ${message.value}<br>`;
+    Phone Number: ${phone.value}<br> Message: ${message.value}<br>`;*/
+    const bodyMessage = `<div class="gmail" style="background-color: white; padding 30px; text-align: center; color: black;">
+                            <div class="gmail-logo" style="display: flex; gap: 10px; justify-content: center; align-items: center;">
+                                <h1 style="font-size: 2em; font-family: 'Dancing Script', cursive;">Harris Momodu</h1>
+                            </div>
+                            <div class="gmail-message" style="font-family: 'Lora', serif;">
+                                <h2 style="margin-bottom: 20px;">Spiritual Contact Form</h2>
+                                <p style="margin-bottom: 20px; font-weight: bold;">Contact Form Message is as follows:</p>
+                                <p style="margin-bottom: 20px;">${message.value}</p>
+                                <p style="margin-bottom: 20px;">Message sent from <strong>${lastName.value}, ${firstName.value}</strong></p>
+                                <p>Reply To: <strong>${email.value}</strong> or give a call to <strong>${phone.value}</strong></p>
+                            </div>
+                        </div>`
 
     Email.send({
         Host : "smtp.elasticemail.com",
