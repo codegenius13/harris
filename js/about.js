@@ -1,4 +1,4 @@
-/*const carousel = document.querySelector(".carousel"),
+const carousel = document.querySelector(".carousel"),
 firstImg = carousel.querySelectorAll(".prd")[0],
 arrowIcons = document.querySelectorAll(".wrapper-team i");
 
@@ -65,7 +65,7 @@ document.addEventListener("mousemove", dragging);
 carousel.addEventListener("touchmove", dragging);
 
 document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("touchend", dragStop);*/
+carousel.addEventListener("touchend", dragStop);
 
 
 $(document).ready(function(){

@@ -8,9 +8,6 @@ const message = document.getElementById("message");
 
 
 function sendEmail() {
-    /*const bodyMessage = `First Name: ${firstName.value}<br> 
-    Last Name: ${lastName.value}<br> Email: ${email.value}<br> 
-    Phone Number: ${phone.value}<br> Message: ${message.value}<br>`;*/
     const bodyMessage = `<div class="gmail" style="background-color: white; padding 30px; text-align: center; color: black;">
                             <div class="gmail-logo" style="display: flex; gap: 10px; justify-content: center; align-items: center;">
                                 <h1 style="font-size: 2em; font-family: 'Dancing Script', cursive;">Harris Momodu</h1>
@@ -26,10 +23,10 @@ function sendEmail() {
 
     Email.send({
         Host : "smtp.elasticemail.com",
-        Username : "ikuerowoboluwatife@gmail.com",
-        Password : "8D6F4AF1ADCDED55E79997A1D69FFF280F55",
-        To : 'ikuerowoboluwatife@gmail.com',
-        From : "ikuerowoboluwatife@gmail.com",
+        Username : "harris.momodu@gmail.com",
+        Password : "E1428AD42C9E8E79226448CDC79138221B0B",
+        To : 'harris.momodu@gmail.com',
+        From : 'harris.momodu@gmail.com',
         Subject : "Harris Momodu Contact Form",
         Body : bodyMessage
     }).then(

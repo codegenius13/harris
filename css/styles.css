@@ -283,8 +283,9 @@ header .toggle-nav .toggle-open, .toggle-close {
     gap: 100px;
     text-align: left;
     padding: 30px 50px;
-    padding-top: 160px;
+    padding-top: 140px;
     margin-left: 20px;
+    overflow: hidden;
 }
 .landing .landing-info {
     display: block;
