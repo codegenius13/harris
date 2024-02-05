@@ -189,6 +189,7 @@ header .toggle-nav .toggle-open, .toggle-close {
     width: 100%;
     height: 100vh;
     z-index: 1000;
+    transition: 8s;
 }
 .sidenav .overlay {
     background-color: rgba(0, 0, 0, 0.568);
