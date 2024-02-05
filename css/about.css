@@ -265,9 +265,9 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 450px;
+    height: 500px;
     user-select: none;
-    margin-left: 14px;
+    margin-left: 60px;
     width: 350px;
     color: rgb(0, 0, 0);
 }
@@ -287,7 +287,15 @@
 }
 .prd div h4 {
     color: rgb(0, 19, 0);
+    margin-bottom: 10px;
 }
+.prd div p {
+    margin-bottom: 10px;
+}
+.prd div a {
+    color: rgb(0, 19, 0);
+}
+
 .carousel .prd:first-child{
     margin-left: 0px;
 }
