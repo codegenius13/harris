@@ -99,3 +99,75 @@ var x = setInterval(function () {
         document.getElementById("seconds").innerHTML = "00";
     }
 }, 1000);
+
+
+const bookInfo = document.querySelector(".clicked-info");
+const bookIcon = document.querySelectorAll(".book-info");
+const compress = document.querySelector(".compress");
+const library = document.querySelector("body");
+const bookContent = document.querySelector(".book-reveal");
+const libraryBookImg = bookContent.querySelector(".b-img");
+const libraryBookName = bookContent.querySelector(".b-title");
+const libraryBookCategory = bookContent.querySelector(".b-cat");
+const libraryBookAuthor = bookContent.querySelector(".author");
+const libraryBookPrice = bookContent.querySelector(".price");
+const libraryBookDescription = bookContent.querySelector(".b-cat");
+
+for (var i=0; i < bookIcon.length; i++) {
+    const bookDisplay = bookIcon[i];
+    bookDisplay.addEventListener("click", (event) => {
+        event.preventDefault();
+        bookInfo.style.left = "0";
+        library.style.overflow = "hidden";
+    });
+    compress.addEventListener('click', () => {
+        bookInfo.style.left = "-100" + "%";
+        library.style.overflow = "auto";
+    });
+ 
+    bookContent.innerHTML = `
+    <div class="book-content">
+        ${libraryBookImg}
+        <div class="book-rating">
+            <h4>Book Category: <span class="lib-cat">${libraryBookCategory}</span></h4>
+            <h1 class="lib-title">${libraryBookName}</h1>
+            <p class="lib-aut">Author: <span>${libraryBookAuthor}</span></p>
+            <p>Book Price: <span class="lib-price">${libraryBookPrice}</span></p>
+            <div class="book-stars">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+            <a href="#">Purchase on Amazon</a>
+        </div>
+    </div>
+    <div class="book-reading">
+        <h1><span class="lib-des">${libraryBookDescription}</span> Book Description</h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia blanditiis, 
+            explicabo voluptate provident quisquam numquam dignissimos officiis temporibus 
+            excepturi inventore cum eius ullam praesentium officia sint! Suscipit nostrum rem provident.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia blanditiis, 
+            explicabo voluptate provident quisquam numquam dignissimos officiis temporibus 
+            excepturi inventore cum eius ullam praesentium officia sint! Suscipit nostrum rem provident.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia blanditiis, 
+            explicabo voluptate provident quisquam numquam dignissimos officiis temporibus 
+            excepturi inventore cum eius ullam praesentium officia sint! Suscipit nostrum rem provident.
+            <br />
+            <br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia blanditiis, 
+            explicabo voluptate provident quisquam numquam dignissimos officiis temporibus 
+            excepturi inventore cum eius ullam praesentium officia sint! Suscipit nostrum rem provident.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia blanditiis, 
+            explicabo voluptate provident quisquam numquam dignissimos officiis temporibus 
+            excepturi inventore cum eius ullam praesentium officia sint! Suscipit nostrum rem provident.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia blanditiis, 
+            explicabo voluptate provident quisquam numquam dignissimos officiis temporibus 
+            excepturi inventore cum eius ullam praesentium officia sint! Suscipit nostrum rem provident.
+        </p>
+        <p>&copy; Copyright <script>document.write(new Date().getFullYear());</script> Evolution From Within</p>
+    </div>
+    `
+}
